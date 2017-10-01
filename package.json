@@ -1,6 +1,6 @@
 {
   "name": "ansi-csi-terminal",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "ANSI CSI codes for terminals",
   "main": "lib/csi.js",
   "scripts": {
