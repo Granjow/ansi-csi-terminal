@@ -5,7 +5,7 @@ ES6 library for controlling/animating a terminal with ANSI CSI escape codes.
 [ANSI CSI](https://en.wikipedia.org/wiki/ANSI_escape_code) defines escape codes for manipulating terminal screens
 by moving around, setting colours, erasing lines/screens etc. which are supported on most terminals.
 
-For a demo, run
+For a demo, including a half rainbow, run `test/index.js` in this repository:
 
     npm run test
 
@@ -16,7 +16,7 @@ const csi = require( 'csi' );
 
 csi.w( 'It is rainy' )
     .left( 5 )
-    .format( csi.color.fg.yellow, csi.color.bg.black )
+    .format( csi.color.yellow.bg, csi.color.black )
     .w( 'sunny' );
 ```
 
@@ -66,14 +66,17 @@ Color definitions can be passed to `csi.format(...args)`.
 
 The following 4-bit colors are available: `black` `red` `green` `yellow` `blue` `magenta` `cyan` `white`
 
-They can be made bright (on some terminals) and they can be used as background or foreground color. 
+They can be made bright with `.bright` (on some terminals) and they can be converted to a background color with `.bg`: 
 
 Example:
 
-    csi.format( csi.color.bg.red.bright )
+    csi.format( csi.color.red )             # Red font color
+    csi.format( csi.color.red.bg )          # Red background color
+    csi.format( csi.color.red.bg.bright )   # Bright red background color
 
 #### RGB Colors
 
 Less widespread. But fun.
 
-    csi.color.rgb( 232, 211, 23 ); // Gives a nice orange
+    csi.color.rgb( 232, 211, 23 );      // Gives a nice orange
+    csi.color.rgb( 232, 211, 23 ).bg;   // Same, as background

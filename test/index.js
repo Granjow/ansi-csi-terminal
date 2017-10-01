@@ -13,18 +13,25 @@ const functions = [
     () => csi.scrollUp( 2 ).w( 'Scrolled up.' ),
     () => csi.scrollDown( 1 ).w( 'Scrolled down.' ),
     () => csi.lineDown( 2 ).w( new Array( csi.width() ).fill( '-' ).join( '' ) ).lineDown( 1 ),
-    () => csi.format( csi.color.fg.cyan, csi.color.bg.black ).w( 'cyan' ),
-    () => csi.format( csi.color.fg.cyan.bright, csi.color.bg.black.bright ).w( 'bright' ),
-    () => csi.format( csi.color.fg.green, csi.color.bg.blue ).w( 'blue' ),
-    () => csi.format( csi.color.fg.green.bright, csi.color.bg.blue.bright ).w( 'bright' ),
+    () => csi.format( csi.color.cyan.bg, csi.color.black ).w( 'black-on-cyan' ),
+    () => csi.format( csi.color.cyan.bg.bright, csi.color.black.bright ).w( 'bright' ),
+    () => csi.format( csi.color.green.bg, csi.color.blue ).w( 'blue-on-green' ),
+    () => csi.format( csi.color.green.bg.bright, csi.color.blue.bright ).w( 'bright' ),
     () => csi.format( csi.color.default ).w( 'default' ),
-    () => csi.format( csi.color.fg.rgb( 232, 211, 32 ), csi.color.bg.rgb( 232, 32, 232 ) ).w( 'rgb' ),
-    () => csi.down( 1 ).w( 'Nothing relevant on this line' ).left( ' on this line'.length ),
+    () => csi.format( csi.color.rgb( 213, 211, 32 ).bg, csi.color.rgb( 213, 82, 150 ) ).w( 'rgb pink on yellow' ),
+    () => csi.down( 1 ).format( csi.color.white, csi.color.rgb( 213, 82, 77 ).bg ).w( 'Nothing relevant on this line' ).left( ' on this line'.length ),
     () => csi.clearToHome(),
     () => csi.w( 'see' ),
     () => csi.clearToEnd(),
     () => csi.w( ' this text go away' ),
     () => csi.clearLine(),
+    () => {
+        const W = csi.width();
+        csi.lineDown();
+        new Array( csi.width() ).fill( 0 ).forEach( ( el, ix ) => {
+            csi.format( csi.color.rgb( Math.floor( ix / W * 255 ), Math.floor( ix / W * 128 ), 128 - Math.floor( ix / W * 128 ) ).bg ).w( ' ' );
+        } );
+    }
 ];
 
 let ix = 0;
@@ -43,4 +50,4 @@ if ( false ) {
     } );
 }
 
-interval = setInterval( nextFunc, 500 );
+interval = setInterval( nextFunc, 5 );
