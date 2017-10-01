@@ -1,0 +1,25 @@
+{
+  "name": "ansi-csi-terminal",
+  "version": "0.0.1",
+  "description": "ANSI CSI codes for terminals",
+  "main": "lib/csi.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Granjow/ansi-csi-terminal.git"
+  },
+  "keywords": [
+    "csi",
+    "ansi",
+    "terminal",
+    "animation"
+  ],
+  "author": "Simon A. Eugster <simon.eu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Granjow/ansi-csi-terminal/issues"
+  },
+  "homepage": "https://github.com/Granjow/ansi-csi-terminal#readme"
+}
