@@ -5,6 +5,8 @@ ES6 library for controlling/animating a terminal with ANSI CSI escape codes.
 [ANSI CSI](https://en.wikipedia.org/wiki/ANSI_escape_code) defines escape codes for manipulating terminal screens
 by moving around, setting colours, erasing lines/screens etc. which are supported on most terminals.
 
+This library also contains some [VT220](https://vt100.net/docs/vt220-rm/chapter4.html) commands.
+
 For a demo, including a half rainbow, run `test/index.js` in this repository:
 
     npm run test
@@ -50,10 +52,11 @@ Please also check some other libraries with CSI support to see if they better fi
 * `scrollDown(n)` – Dito, but `n` lines down
 * `saveCursorPos()` – Save current cursor position
 * `restoreCursorPos()` – Return to previously saved cursor position
-* `hideCursor()` – Hide cursor
-* `showCursor()` – Show cursor
+* `showCursor(show)` – Show cursor if `show` is `true` (DECTCEM)
+* `hideCursor()` – Hide cursor (DECTCEM)
+* `invertScreen(b)` – Invert screen colours if `b` is `true` (DECSCNM)
 * `format(f1, f2, ...)` – Set formattings
-* `reset()` – Reset terminal (like when entering `reset`), clears formatting and buffer and stuff. Good for un-breaking broken terminals.
+* `reset()` – Reset terminal (like when entering `reset`), clears formatting and buffer and stuff. Good for un-breaking broken terminals. (RIS)
 * `color` – See below
 * `height` – Get terminal height
 * `width` – Get terminal width
