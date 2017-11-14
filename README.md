@@ -22,6 +22,11 @@ csi.w( 'It is rainy' )
     .w( 'sunny' );
 ```
 
+CSI sequences can be run manually in terminals e.g. with `echo -e`. The following line prints text
+with green background colour:
+
+    echo -e "\033[42mHello"
+
 ## Other libraries
 
 Please also check some other libraries with CSI support to see if they better fit your needs:
