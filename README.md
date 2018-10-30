@@ -14,7 +14,7 @@ For a demo, including a half rainbow, run `test/index.js` in this repository:
 Example: Write text, go back and overwrite “rainy“ with a yellow “sunny”.
 
 ```javascript
-const csi = require( 'csi' );
+const csi = require( 'ansi-csi-terminal' );
 
 csi.w( 'It is rainy' )
     .left( 5 )
@@ -43,16 +43,17 @@ Please also check some other libraries with CSI support to see if they better fi
 * `down(n)` – Move cursor down
 * `right(n)` – Move cursor right
 * `left(n)` – Move cursor left
-* `downHome(n)` – Move cursor `n` lines down and go to beginning of the line
-* `upHome(n)` – Dito, but `n` lines up
+* `lineDown(n)` – Move cursor `n` lines down and go to beginning of the line
+* `lineUp(n)` – Dito, but `n` lines up
+* `x(r)` – Go to row `r` (counting starts at 1)
 * `xy(r,c)` – Go to row `r` and column `c` (counting starts at 1)
-* `clearScreen()` – Clear content of entire screen
 * `clearToEos()` – Clear from cursor to end of screen
 * `clearToBos()` – Clear from cursor to beginning of screen
+* `clearScreen()` – Clear content of entire screen
 * `clearScreenWithBuffer()` – Clear screen and buffer
-* `clearLine()` – Clear entire line (cursor position remains unchanged)
 * `clearToEnd()` – Clear from cursor to end of the line (cursor position remains unchanged)
 * `clearToHome()` – Dito, but clear to beginning of line 
+* `clearLine()` – Clear entire line (cursor position remains unchanged)
 * `scrollUp(n)` – Scroll `n` lines up (i.e. text moves up, cursor position stays)
 * `scrollDown(n)` – Dito, but `n` lines down
 * `saveCursorPos()` – Save current cursor position
