@@ -11,7 +11,7 @@ For a demo, including a half rainbow, run `test/index.js` in this repository:
 
     npm run test
 
-Example: Write text, go back and overwrite “rainy“ with a yellow “sunny”.
+Example: Write text, go back and overwrite “rainy” with a yellow “sunny”.
 
 ```javascript
 const csi = require( 'ansi-csi-terminal' );
